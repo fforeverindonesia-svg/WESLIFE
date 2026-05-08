@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>WESTLIFE - THE ANNIVERSARY WORLD TOUR 2027</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --gold:#ffcb73;
+    --gold2:#ff8c00;
+    --dark:#070707;
+    --red:#ff4d4d;
+    --white:#fff;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{
+    width:10px;
+}
+::-webkit-scrollbar-track{
+    background:#111;
+}
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(to bottom,var(--gold),var(--gold2));
+    border-radius:20px;
+}
+
+/* PARTICLES */
+.particles{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-1;
+    overflow:hidden;
+}
+
+.particles span{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:rgba(255,200,100,.8);
+    border-radius:50%;
+    animation:float 15s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh) scale(0);
+        opacity:0;
+    }
+    10%{
+        opacity:1;
+    }
+    to{
+        transform:translateY(-10vh) scale(1.5);
+        opacity:0;
+    }
+}
+
+/* NAVBAR */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:999;
+    padding:20px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,.4);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.logo{
+    font-family:'Cinzel',serif;
+    font-size:28px;
+    font-weight:800;
+    letter-spacing:3px;
+    color:var(--gold);
+}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#fff;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:var(--gold);
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    padding:120px 20px 80px;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at center, rgba(255,140,0,.3), transparent 50%),
+    linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,.95));
+    z-index:1;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:1000px;
+    animation:fadeUp 1.5s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(80px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero h4{
+    letter-spacing:8px;
+    color:var(--gold);
+    margin-bottom:20px;
+    font-weight:500;
+}
+
+.hero h1{
+    font-family:'Cinzel',serif;
+    font-size:90px;
+    line-height:1;
+    margin-bottom:20px;
+    background:linear-gradient(to bottom,#fff,var(--gold));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 0 40px rgba(255,180,50,.4);
+}
+
+.hero h2{
+    font-family:'Cinzel',serif;
+    font-size:38px;
+    color:#fff;
+    margin-bottom:30px;
+}
+
+.glow{
+    color:var(--gold);
+    text-shadow:
+    0 0 10px rgba(255,200,100,.8),
+    0 0 20px rgba(255,150,0,.8),
+    0 0 40px rgba(255,150,0,.8);
+}
+
+.hero p{
+    font-size:18px;
+    color:#ddd;
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.hero-btns{
+    margin-top:40px;
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 36px;
+    border-radius:50px;
+    border:none;
+    font-weight:700;
+    cursor:pointer;
+    transition:.4s;
+    font-size:16px;
+    letter-spacing:1px;
+}
+
+.btn-gold{
+    background:linear-gradient(to right,var(--gold),var(--gold2));
+    color:#000;
+    box-shadow:0 10px 30px rgba(255,180,0,.4);
+}
+
+.btn-gold:hover{
+    transform:translateY(-5px) scale(1.05);
+    box-shadow:0 20px 40px rgba(255,180,0,.5);
+}
+
+.btn-outline{
+    background:transparent;
+    border:2px solid var(--gold);
+    color:#fff;
+}
+
+.btn-outline:hover{
+    background:var(--gold);
+    color:#000;
+    transform:translateY(-5px);
+}
+
+/* SECTION */
+section{
+    padding:100px 7%;
+    position:relative;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:55px;
+    font-family:'Cinzel',serif;
+    color:var(--gold);
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#bbb;
+}
+
+/* EVENT INFO */
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.info-card{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.1);
+    backdrop-filter:blur(10px);
+    padding:40px 30px;
+    border-radius:30px;
+    text-align:center;
+    transition:.5s;
+    position:relative;
+    overflow:hidden;
+}
+
+.info-card::before{
+    content:'';
+    position:absolute;
+    width:150%;
+    height:150%;
+    background:linear-gradient(45deg,transparent,rgba(255,200,100,.15),transparent);
+    top:-50%;
+    left:-50%;
+    transform:rotate(25deg);
+    animation:shine 6s linear infinite;
+}
+
+@keyframes shine{
+    to{
+        transform:rotate(25deg) translateX(100%);
+    }
+}
+
+.info-card:hover{
+    transform:translateY(-10px);
+    border-color:var(--gold);
+}
+
+.info-card h3{
+    color:var(--gold);
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.info-card p{
+    color:#ddd;
+    line-height:1.8;
+}
+
+/* COUNTDOWN */
+.countdown{
+    background:
+    linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),
+    url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=1400&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    text-align:center;
+}
+
+.timer{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:50px;
+}
+
+.time-box{
+    width:180px;
+    height:180px;
+    border-radius:30px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    backdrop-filter:blur(10px);
+    transition:.4s;
+}
+
+.time-box:hover{
+    transform:translateY(-10px) scale(1.05);
+    border-color:var(--gold);
+}
+
+.time-box h3{
+    font-size:55px;
+    color:var(--gold);
+}
+
+.time-box span{
+    margin-top:10px;
+    letter-spacing:3px;
+    color:#ccc;
+}
+
+/* TICKETS */
+.ticket-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.ticket-card{
+    position:relative;
+    background:linear-gradient(180deg,#161616,#080808);
+    border-radius:30px;
+    padding:40px 30px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.08);
+    transition:.5s;
+}
+
+.ticket-card:hover{
+    transform:translateY(-15px) scale(1.03);
+    border-color:var(--gold);
+    box-shadow:0 20px 60px rgba(255,170,0,.15);
+}
+
+.ticket-card::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(45deg,transparent,rgba(255,200,0,.12),transparent);
+    transform:translateX(-100%);
+    transition:1s;
+}
+
+.ticket-card:hover::before{
+    transform:translateX(100%);
+}
+
+.ticket-card h3{
+    font-size:30px;
+    color:var(--gold);
+    margin-bottom:20px;
+}
+
+.price{
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.ticket-card ul{
+    list-style:none;
+    margin-bottom:30px;
+}
+
+.ticket-card ul li{
+    margin:12px 0;
+    color:#ccc;
+}
+
+.ticket-card button{
+    width:100%;
+}
+
+/* LAYOUT */
+.layout-box{
+    position:relative;
+    border-radius:30px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.1);
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.layout-box img{
+    width:100%;
+    display:block;
+    transition:1s;
+}
+
+.layout-box:hover img{
+    transform:scale(1.03);
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.gallery img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+    border-radius:30px;
+    transition:.7s;
+    border:2px solid rgba(255,255,255,.08);
+}
+
+.gallery img:hover{
+    transform:scale(1.04) rotate(1deg);
+    border-color:var(--gold);
+    box-shadow:0 20px 50px rgba(255,180,0,.2);
+}
+
+/* FOOTER */
+footer{
+    padding:80px 7% 40px;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.08);
+    background:#050505;
+}
+
+footer h2{
+    font-family:'Cinzel',serif;
+    color:var(--gold);
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+footer p{
+    color:#aaa;
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.socials{
+    margin:35px 0;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.socials a{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    color:#fff;
+    text-decoration:none;
+    font-size:22px;
+    transition:.4s;
+}
+
+.socials a:hover{
+    transform:translateY(-8px) scale(1.1);
+    background:linear-gradient(to right,var(--gold),var(--gold2));
+    color:#000;
+}
+
+/* FLOATING LIGHTS */
+.light{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    opacity:.35;
+    z-index:-1;
+}
+
+.light.one{
+    width:300px;
+    height:300px;
+    background:orange;
+    top:10%;
+    left:-5%;
+}
+
+.light.two{
+    width:250px;
+    height:250px;
+    background:red;
+    bottom:10%;
+    right:-5%;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .hero h1{
+        font-size:60px;
+    }
+
+    .hero h2{
+        font-size:28px;
+    }
+
+    nav ul{
+        display:none;
+    }
+
+    .section-title h2{
+        font-size:40px;
+    }
+}
+
+@media(max-width:600px){
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero h2{
+        font-size:22px;
+    }
+
+    .time-box{
+        width:140px;
+        height:140px;
+    }
+
+    .time-box h3{
+        font-size:38px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="particles" id="particles"></div>
+
+<div class="light one"></div>
+<div class="light two"></div>
+
+<nav>
+    <div class="logo">WESTLIFE 25</div>
+
+    <ul>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#tickets">TICKETS</a></li>
+        <li><a href="#layout">LAYOUT</a></li>
+        <li><a href="#gallery">GALLERY</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h4>25 YEARS OF HITS</h4>
+
+        <h1>WESTLIFE</h1>
+
+        <h2>
+            THE ANNIVERSARY <span class="glow">WORLD TOUR</span>
+        </h2>
+
+        <p>
+            Rayakan 25 tahun perjalanan musik legendaris bersama WESTLIFE dalam konser spektakuler terbesar tahun 2027 di Indonesia.
+            Nikmati pengalaman konser megah dengan visual cinematic, lighting futuristik, dan nostalgia lagu-lagu terbaik sepanjang masa.
+        </p>
+
+        <div class="hero-btns">
+            <button class="btn btn-gold">
+                BUY TICKETS
+            </button>
+
+            <button class="btn btn-outline">
+                WATCH TRAILER
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- INFO -->
+<section id="about">
+
+    <div class="section-title">
+        <h2>EVENT INFORMATION</h2>
+        <p>Informasi lengkap konser WESTLIFE Indonesia 2027</p>
+    </div>
+
+    <div class="info-grid">
+
+        <div class="info-card">
+            <h3>DATE</h3>
+            <p>
+                Saturday<br>
+                23 January 2027
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h3>VENUE</h3>
+            <p>
+                Gelora Bung Karno<br>
+                Main Stadium
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h3>VIP PACKAGE</h3>
+            <p>
+                Exclusive merchandise, laminated access, photocard, dedicated entrance lane & many more.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h3>WORLD TOUR</h3>
+            <p>
+                Celebrating 25 years of legendary hits around the globe.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- COUNTDOWN -->
+<section class="countdown">
+
+    <div class="section-title">
+        <h2>COUNTDOWN TO SHOW</h2>
+        <p>Persiapkan dirimu untuk malam yang tak terlupakan</p>
+    </div>
+
+    <div class="timer">
+
+        <div class="time-box">
+            <h3 id="days">00</h3>
+            <span>DAYS</span>
+        </div>
+
+        <div class="time-box">
+            <h3 id="hours">00</h3>
+            <span>HOURS</span>
+        </div>
+
+        <div class="time-box">
+            <h3 id="minutes">00</h3>
+            <span>MINUTES</span>
+        </div>
+
+        <div class="time-box">
+            <h3 id="seconds">00</h3>
+            <span>SECONDS</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TICKETS -->
+<section id="tickets">
+
+    <div class="section-title">
+        <h2>TICKET PRICES</h2>
+        <p>Kategori tiket berdasarkan layout resmi</p>
+    </div>
+
+    <div class="ticket-grid">
+
+        <div class="ticket-card">
+            <h3>VIP PACKAGE</h3>
+            <div class="price">IDR 2.750.000</div>
+
+            <ul>
+                <li>✓ VIP Seated Ticket</li>
+                <li>✓ Special Westlife Gift</li>
+                <li>✓ Laminated Access</li>
+                <li>✓ Exclusive Photocard</li>
+                <li>✓ Dedicated Entrance Lane</li>
+            </ul>
+
+            <button class="btn btn-gold">
+                GET VIP
+            </button>
+        </div>
+
+        <div class="ticket-card">
+            <h3>CAT 1 A & B</h3>
+            <div class="price">IDR 2.500.000</div>
+
+            <ul>
+                <li>✓ Premium Seat</li>
+                <li>✓ Best Stage View</li>
+                <li>✓ Fast Access</li>
+                <li>✓ Limited Seats</li>
+            </ul>
+
+            <button class="btn btn-gold">
+                BUY NOW
+            </button>
+        </div>
+
+        <div class="ticket-card">
+            <h3>CAT 2 A & B</h3>
+            <div class="price">IDR 2.250.000</div>
+
+            <ul>
+                <li>✓ Excellent View</li>
+                <li>✓ Comfortable Seating</li>
+                <li>✓ Official Access</li>
+            </ul>
+
+            <button class="btn btn-gold">
+                BUY NOW
+            </button>
+        </div>
+
+        <div class="ticket-card">
+            <h3>CAT 3 A & B</h3>
+            <div class="price">IDR 1.850.000</div>
+
+            <ul>
+                <li>✓ Good Visibility</li>
+                <li>✓ Concert Experience</li>
+                <li>✓ Official Access</li>
+            </ul>
+
+            <button class="btn btn-gold">
+                BUY NOW
+            </button>
+        </div>
+
+        <div class="ticket-card">
+            <h3>CAT 4 A & B</h3>
+            <div class="price">IDR 1.450.000</div>
+
+            <ul>
+                <li>✓ Side View Seating</li>
+                <li>✓ Limited Availability</li>
+            </ul>
+
+            <button class="btn btn-gold">
+                BUY NOW
+            </button>
+        </div>
+
+        <div class="ticket-card">
+            <h3>CAT 5 A & B</h3>
+            <div class="price">IDR 1.250.000</div>
+
+            <ul>
+                <li>✓ Festival Atmosphere</li>
+                <li>✓ Official Seating</li>
+            </ul>
+
+            <button class="btn btn-gold">
+                BUY NOW
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- LAYOUT -->
+<section id="layout">
+
+    <div class="section-title">
+        <h2>SEATING LAYOUT</h2>
+        <p>Official concert seating map</p>
+    </div>
+
+    <div class="layout-box">
+        <img src="https://i.imgur.com/U3vTGjX.jpeg" alt="Layout">
+    </div>
+
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+
+    <div class="section-title">
+        <h2>CONCERT EXPERIENCE</h2>
+        <p>Feel the energy, lights, and unforgettable moments</p>
+    </div>
+
+    <div class="gallery">
+
+        <img src="https://images.unsplash.com/photo-1503095396549-807759245b35?q=80&w=1200&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1200&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=1200&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1200&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1501612780327-45045538702b?q=80&w=1200&auto=format&fit=crop">
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <h2>WESTLIFE WORLD TOUR 2027</h2>
+
+    <p>
+        25 Years of Hits. One Legendary Night. 
+        Join thousands of fans in the biggest nostalgia concert experience of the year.
+    </p>
+
+    <div class="socials">
+        <a href="#">F</a>
+        <a href="#">I</a>
+        <a href="#">X</a>
+        <a href="#">Y</a>
+    </div>
+
+    <p style="margin-top:30px;">
+        © 2027 WESTLIFE THE ANNIVERSARY WORLD TOUR — ALL RIGHTS RESERVED
+    </p>
+
+</footer>
+
+<script>
+
+/* PARTICLES */
+const particles = document.getElementById("particles");
+
+for(let i=0;i<120;i++){
+
+    const span = document.createElement("span");
+
+    span.style.left = Math.random() * 100 + "vw";
+    span.style.animationDuration = (Math.random()*10+5)+"s";
+    span.style.animationDelay = Math.random()*5+"s";
+    span.style.opacity = Math.random();
+
+    particles.appendChild(span);
+}
+
+/* COUNTDOWN */
+const targetDate = new Date("January 23, 2027 19:00:00").getTime();
+
+const interval = setInterval(()=>{
+
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24))/(1000*60*60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60))/(1000*60));
+    const seconds = Math.floor((distance % (1000 * 60))/1000);
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
+    if(distance < 0){
+        clearInterval(interval);
+    }
+
+},1000);
+
+
+/* SCROLL EFFECT */
+window.addEventListener("scroll",()=>{
+
+    const nav = document.querySelector("nav");
+
+    if(window.scrollY > 50){
+        nav.style.background = "rgba(0,0,0,.8)";
+    }else{
+        nav.style.background = "rgba(0,0,0,.4)";
+    }
+
+});
+
+
+/* BUTTON EFFECT */
+document.querySelectorAll(".btn").forEach(btn=>{
+
+    btn.addEventListener("mouseenter",()=>{
+
+        btn.style.transform = "scale(1.05)";
+    });
+
+    btn.addEventListener("mouseleave",()=>{
+
+        btn.style.transform = "scale(1)";
+    });
+
+});
+
+</script>
+
+</body>
+</html>
